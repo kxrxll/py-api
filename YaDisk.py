@@ -11,14 +11,6 @@ class Ya_disk:
             'Authorization': 'OAuth {}'.format(self.token)
         }
 
-    def _get_upload_link(self, disk_file_path):
-        upload_url = "https://cloud-api.yandex.net/v1/disk/resources/upload"
-        headers = self.get_headers()
-        params = {"path": disk_file_path, "overwrite": "true"}
-        response = requests.get(upload_url, headers=headers, params=params)
-        print(response.json())
-        return response.json()
-
     def upload(self, path, url):
         headers = self.get_headers()
         params = {

@@ -16,6 +16,7 @@ class Vk_api:
         params = self._get_params()
         response = requests.get("https://api.vk.com/method/photos.getAll", params=params)
         response.raise_for_status()
+        print(response.json())
         result_response = response.json()["response"]["items"]
         result = []
         for item in result_response:
